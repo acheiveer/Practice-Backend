@@ -27,20 +27,22 @@ app.get("/files",(req,res)=>{
       return res.status(404).json({ error: 'Failed to retrieve files'});
   }
   res.json(file);
-  console.log(req.params)
 });
 });
 
 app.get("/files/:filename",(req,res)=>{
    const paths=req.params.filename;
  const filepath=(path.join(__dirname,"./files/",paths));
-console.log(paths);
   fs.readFile(filepath,'utf8',(err,data)=>{
     if(err){
       return res.status(404).json({error: "file not found"});
     }
     res.json(data);
   })
+})
+
+app.all('*',(req,res)=>{
+  res.status(400).send("Route not found")
 })
     
 app.listen(3000,()=>{
