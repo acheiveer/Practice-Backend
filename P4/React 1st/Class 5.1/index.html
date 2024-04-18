@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <div id="parentbutton">
+        </div>
+        <script>
+            // here we are making a button which incresres its count on click of that button
+
+            let state={
+                count:0
+            }
+
+            
+            function onButtonPress(){
+             state.count++; 
+             buttoncomponentrerender();
+            }
+
+            
+            function buttoncomponentrerender(){
+              document.getElementById("parentbutton").innerHTML = "";
+              const component = buttoncomponent(state.count);
+              document.getElementById("parentbutton").appendChild(component);
+            
+            }
+
+            function buttoncomponent(count){
+                const button = document.createElement("button");
+                button.innerHTML = `Count ${count}`;
+                button.setAttribute("onclick", "onButtonPress()")
+                return button;
+            }
+
+            buttoncomponentrerender();
+           
+        </script>
+    </body>
+</html>
