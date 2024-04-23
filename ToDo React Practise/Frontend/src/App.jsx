@@ -8,10 +8,10 @@ import { Todos } from './components/Todos'
 function App() {
   const [todos, setTodos] = useState([]);
 
-  // fetch("http://localhost:3000/todo").then(async function(res){
-  //       const json = await res.json();
-  //       setTodos(json.todos)
-  //     })
+  fetch("http://localhost:3000/todo").then(async function(res){
+        const json = await res.json();
+         setTodos(json.response)
+      })
 
   return (
     <div>
