@@ -2,7 +2,7 @@ const zod = require("zod")
  
 const CreateToDo = zod.object({
     title: zod.string(),
-    desciption: zod.string()
+    description: zod.string()
 })
 
 const UpdateTodo = zod.object({

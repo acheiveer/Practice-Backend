@@ -32,8 +32,6 @@ function signJwt(username, password) {
    return token;
     
 
-   
-c
 }
 
 /**
