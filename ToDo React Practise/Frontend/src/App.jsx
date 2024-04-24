@@ -13,10 +13,17 @@ function App() {
          setTodos(json.response)
       })
 
+      const toggleCompleted = (index) => {
+        const updatedTodos = [...todos];
+        updatedTodos[index].completed = !updatedTodos[index].completed;
+     
+        setTodos(updatedTodos);
+      };
+
   return (
     <div>
       <CreateToDo></CreateToDo>
-      <Todos todos={todos}></Todos>
+      <Todos todos={todos} onToggleCompleted={toggleCompleted}></Todos>
     </div>
   )
 }
