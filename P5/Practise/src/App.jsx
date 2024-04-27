@@ -4,30 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-//  return <>
-//    <CardWrapper innerComponent={<TextComponent/>}/>
-//  </>
 return <>
-  <CardWrapper>Hoi there</CardWrapper>
+
  </>
 }
 
-function CardWrapper({children}){
-  return <div style={{border:"2px solid black",padding:20}}>
-      {children}
-  </div>
-}
 
-// function CardWrapper({innerComponent}){
-//   return <div style={{border:"2px solid black",padding:20}}>
-//       {innerComponent}
-//   </div>
-// }
-// function TextComponent(){
-//   return <div>
-//     hllo
-//   </div>
-// }
 
 export default App
 
@@ -63,3 +45,30 @@ export default App
 
 // }
 
+// CrdWrapper
+
+// function App() {
+//   //  return <>
+//   //    <CardWrapper innerComponent={<TextComponent/>}/>
+//   //  </>
+//   return <>
+//     <CardWrapper>Hoi there</CardWrapper>
+//    </>
+//   }
+  
+//   function CardWrapper({children}){
+//     return <div style={{border:"2px solid black",padding:20}}>
+//         {children}
+//     </div>
+//   }
+  
+//   // function CardWrapper({innerComponent}){
+//   //   return <div style={{border:"2px solid black",padding:20}}>
+//   //       {innerComponent}
+//   //   </div>
+//   // }
+//   // function TextComponent(){
+//   //   return <div>
+//   //     hllo
+//   //   </div>
+//   // }
