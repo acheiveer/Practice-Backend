@@ -4,25 +4,30 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios"
 
-function App() {
-    const [todos,setTodos] =useState([]);
-
-    useEffect(() => {
-        axios.get("https://sum-server.100xdevs.com/todos")
-        .then(function(response){
-            setTodos(response.data.todos)
-        })
-    }, [])
-    
+function App() { 
 return <>
-        {todos.map(todo => <Todo title={todo.title} description={todo.description}/>)}
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <Todo id={4}/>
  </>
 }
 
-function Todo({title,description}){
+function Todo({id}){
+    const [todos,setTodos] =useState({});
+
+    useEffect(() => {
+        axios.get("https://sum-server.100xdevs.com/todo?id="+ id)
+        .then(function(response){
+            setTodos(response.data.todo)
+        })
+    }, [])
+
+
     return <>
-        <h1>{title}</h1>
-        {description}
+        <h1>{todos.title}</h1>
+       <h4> {todos.description}</h4>
     </>
 }
 
