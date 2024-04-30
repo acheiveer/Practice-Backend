@@ -5,40 +5,29 @@ import './App.css'
 import axios from "axios"
 
 function App() { 
-    const [selectedId,setselectedId] = useState(1)
+    const [count,setCount] = useState(0)
+    const [inputval,setInputval] = useState(1)
+
+    var cnt =0;
+    for(let i=1;i<=inputval;i++){
+        cnt+=i
+    }
+    const handleChange = (event) => {
+        setInputval(event.target.value);
+      };
 return <>
+       <input
+        type="text"
+        value={inputval}
+        onChange={handleChange}
+        placeholder="Enter No"
+      />
+      <p>Sum of 1 to {inputval} is {cnt}</p>
+      
         <button onClick={()=>{
-            setselectedId(1)
-        }}>1</button>
-        <button onClick={()=>{
-            setselectedId(2)
-        }}>2</button>
-        <button onClick={()=>{
-            setselectedId(3)
-        }}>3</button>
-        <button onClick={()=>{
-            setselectedId(4)
-        }}>4</button>
-        <Todo id={selectedId}/>
+            setCount(count +1)
+        }}>Counter ({count})</button>
  </>
-}
-
-function Todo({id}){
-    const [todos,setTodos] =useState({});
-
-    useEffect(() => {
-        axios.get("https://sum-server.100xdevs.com/todo?id="+ id)
-        .then(function(response){
-            setTodos(response.data.todo)
-        })
-    }, [id])
-
-
-    return <>
-        <h6>ID:{id}</h6>
-        <h1>{todos.title}</h1>
-       <h4> {todos.description}</h4>
-    </>
 }
 
 
