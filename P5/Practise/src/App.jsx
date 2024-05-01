@@ -23,12 +23,15 @@ function App() {
         setBankData({
             returns:100
         });
-      })
+      },5000)
  },[])
 
 
 
-  const cryptoreturn = (exchnage1data.returns + exchnage2data.returns);
+  const cryptoreturn = useMemo(()=>{
+    console.log("Hi there")
+    return exchnage1data.returns + exchnage2data.returns;
+  },[exchnage1data,exchnage2data]);
   const incometax = (cryptoreturn + bankData.returns) * 0.3;
    
 return <>
