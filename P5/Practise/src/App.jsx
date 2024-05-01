@@ -5,34 +5,29 @@ import './App.css'
 import axios from "axios"
 
 function App() { 
-    const [count,setCount] = useState(0)
-    const [inputval,setInputval] = useState(1)
+  const [exchnagedata,setExchnagedata] = useState({});
+  const [bankData,setBankData] = useState({})
 
-    // var cnt =0;
-    // for(let i=1;i<=inputval;i++){
-    //     cnt+=i
-    // }
 
-    let cnt = useMemo(()=>{
-        let cnt =0;
-    for(let i=1;i<=inputval;i++){
-        cnt+=i
-    }
-    return cnt;
-    },[inputval]);
+  setTimeout(()=>{
+    setBankData({income:100})
+  },3000)
+
+//   fetch("https://google.com",async (res)=>{
+//     const json = await res.json();
+//     setBankData({income:100})
+//   })
+
+  setTimeout(()=>{
+    setExchnagedata({
+        returns:100
+    });
+  },1000)
+
+  const incomeTax = (bankData.income + exchnagedata.returns) * 0.3;
    
 return <>
-       <input
-        onChange={(e)=>{
-            setInputval(e.target.value)
-        }}
-        placeholder="Enter No"
-      />
-      <p>Sum of 1 to {inputval} is {cnt}</p>
-
-        <button onClick={()=>{
-            setCount(count +1)
-        }}>Counter ({count})</button>
+      hi there, your income tax returns are {incomeTax}
  </>
 }
 
