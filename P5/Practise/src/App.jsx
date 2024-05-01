@@ -26,19 +26,23 @@ function App() {
       },5000)
  },[])
 
+// useCallback is not about minimizing the amout of code that is run 
+// useCallback is about not rendering a child component, if the function hasnot/doesnpt need to cahnge across render
 
-
-  const cryptoreturn = useMemo(()=>{
-    console.log("Hi there")
-    return exchnage1data.returns + exchnage2data.returns;
-  },[exchnage1data,exchnage2data]);
-  const incometax = (cryptoreturn + bankData.returns) * 0.3;
+ const calculateCryproReturns = function(){
+    return exchnage1data.returns + exchnage2data.returns
+ }
+  const incometax = (calculateCryproReturns() + bankData.returns) * 0.3;
    
 return <>
-      hi there, your income tax returns are {incometax}
+      <CryptoGainCalculator  calculateCryproReturns={calculateCryproReturns}/>
  </>
 }
 
-
+function CryptoGainCalculator({calculateCryproReturns}){
+    return <div>
+        your crypto returns are {calculateCryproReturns()}
+    </div>
+}
 
 export default App
