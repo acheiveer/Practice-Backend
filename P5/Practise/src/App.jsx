@@ -5,43 +5,34 @@ import './App.css'
 import axios from "axios"
 
 function App() { 
-  const [exchnagedata,setExchnagedata] = useState({});
+  const [exchnage1data,setExchnage1data] = useState({});
+  const [exchnage2data,setExchnage2data] = useState({});
   const [bankData,setBankData] = useState({})
-  console.log("hi therer")
 
-  useEffect(()=>{
-    setTimeout(()=>{
-        setBankData({income:100})
-      },3000)
+
+  useEffect(()=>{ 
+        setExchnage1data({returns:100});
   },[])
 
-//   setTimeout(()=>{
-//     setBankData({income:100})
-//   },3000)
-
-//   fetch("https://google.com",async (res)=>{
-//     const json = await res.json();
-//     setBankData({income:100})
-//   })
+  useEffect(()=>{ 
+    setExchnage2data({returns:100});
+},[])
 
  useEffect(()=>{
     setTimeout(()=>{
-        setExchnagedata({
+        setBankData({
             returns:100
         });
-      },1000)
+      })
  },[])
 
-//   setTimeout(()=>{
-//     setExchnagedata({
-//         returns:100
-//     });
-//   },1000)
 
-  const incomeTax = (bankData.income + exchnagedata.returns) * 0.3;
+
+  const cryptoreturn = (exchnage1data.returns + exchnage2data.returns);
+  const incometax = (cryptoreturn + bankData.returns) * 0.3;
    
 return <>
-      hi there, your income tax returns are {incomeTax}
+      hi there, your income tax returns are {incometax}
  </>
 }
 
