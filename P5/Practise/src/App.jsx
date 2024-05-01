@@ -7,22 +7,36 @@ import axios from "axios"
 function App() { 
   const [exchnagedata,setExchnagedata] = useState({});
   const [bankData,setBankData] = useState({})
+  console.log("hi therer")
 
+  useEffect(()=>{
+    setTimeout(()=>{
+        setBankData({income:100})
+      },3000)
+  },[])
 
-  setTimeout(()=>{
-    setBankData({income:100})
-  },3000)
+//   setTimeout(()=>{
+//     setBankData({income:100})
+//   },3000)
 
 //   fetch("https://google.com",async (res)=>{
 //     const json = await res.json();
 //     setBankData({income:100})
 //   })
 
-  setTimeout(()=>{
-    setExchnagedata({
-        returns:100
-    });
-  },1000)
+ useEffect(()=>{
+    setTimeout(()=>{
+        setExchnagedata({
+            returns:100
+        });
+      },1000)
+ },[])
+
+//   setTimeout(()=>{
+//     setExchnagedata({
+//         returns:100
+//     });
+//   },1000)
 
   const incomeTax = (bankData.income + exchnagedata.returns) * 0.3;
    
