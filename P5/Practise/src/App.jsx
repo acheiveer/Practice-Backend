@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -29,9 +29,9 @@ function App() {
 // useCallback is not about minimizing the amout of code that is run 
 // useCallback is about not rendering a child component, if the function hasnot/doesnpt need to cahnge across render
 
- const calculateCryproReturns = function(){
+ const calculateCryproReturns = useCallback(function(){
     return exchnage1data.returns + exchnage2data.returns
- }
+ },[exchnage1data,exchnage2data])
   const incometax = (calculateCryproReturns() + bankData.returns) * 0.3;
    
 return <>
