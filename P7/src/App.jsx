@@ -1,51 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
-import './App.css'
-import {lazy} from 'react'
-import { Suspense } from 'react'
-// import { Dashboard } from "./components/Dashboard"
-const  Dashboard = lazy(()=> import("./components/Dashboard"))
-// import { Landing } from "./components/Landing"
-const Landing = lazy(()=>import("./components/Landing"))
+import { useState } from "react"
 
 function App() {
-
-
+  const [count,setCount] = useState(0)
 
   return (
     <div>
-
-      <BrowserRouter>
-        <Appbar />
-        <Routes>
-          <Route path='/dashboard' element={<Suspense fallback={"loading..."}><Dashboard /></Suspense>} />
-          <Route path='/' element={<Suspense fallback={"loading..."}><Landing /></Suspense>}/>
-
-        </Routes>
-      </BrowserRouter>
-
+    <Count count={count} setCount={setCount}/>
     </div>
   )
 }
-
-
-function Appbar() {
-  const navigate = useNavigate();
+function Count({count,setCount}){
   return <div>
-    <div>
-      <button onClick={() => {
-        // window.location.href= "/"      // this window.location.href is not the right way it does not do client side routing it actually refersh the page it reload the page 
-        navigate("/")
-      }}>Landing Page</button>
-
-      <button onClick={() => {
-        //  window.location.href= "/dashboard"
-        navigate("/dashboard ")
-      }}>Dashboard Page</button>
-    </div>
+   {count}<br/>
+   <Buttons count={count} setCount={setCount}/>
   </div>
+
+}
+function Buttons({count ,setCount}){
+  return <>
+    <button onClick={()=>{
+      setCount(count+1)
+    }}>Increase</button>
+    <button onClick={()=>{
+      setCount(count-1)
+    }}>Decrease</button>
+  </>
 
 }
 
