@@ -1,6 +1,6 @@
 
 
-export function Landing(){
+export default function Landing(){
     return <>
         Landing Page
     </>
