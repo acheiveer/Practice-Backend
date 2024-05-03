@@ -12,7 +12,13 @@ function App() {
   return (
   <>
   <>
-    <p style={{background:"green"}}>Hello prabhakar here</p>
+   <button onClick={()=>{
+    window.location.href= "/"
+   }}>Landing Page</button>
+     
+    <button onClick={()=>{
+       window.location.href= "/dashboard"
+   }}>Dashboard Page</button>
   </>
   <BrowserRouter>
     <Routes>
