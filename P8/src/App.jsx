@@ -30,13 +30,14 @@ function CountRenderer(){
   </div>
 }
 function Buttons(){
-  const [count, setCount] = useRecoilState(countAtom)
+  // const [count, setCount] = useRecoilState(countAtom)
+  const setCount = useSetRecoilState(countAtom);
   return <>
     <button onClick={()=>{
-      setCount(count+1)
+      setCount(count => count+1)
     }}>Increase</button>
     <button onClick={()=>{
-      setCount(count-1)
+      setCount(count => count-1)
     }}>Decrease</button>
   </>
 
