@@ -27,6 +27,7 @@ function CountRenderer(){
   const count =useRecoilValue(countAtom);
   return <div>
    <b> {count}</b>
+   <Check/>
   </div>
 }
 function Buttons(){
@@ -40,6 +41,15 @@ function Buttons(){
       setCount(count => count-1)
     }}>Decrease</button>
   </>
+
+}
+
+function Check(){
+  const count =useRecoilValue(countAtom);
+    return <div>
+     {(count % 2==0 ) ? "It is even":null}
+    </div>
+ 
 
 }
 
